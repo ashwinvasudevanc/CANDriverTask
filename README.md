@@ -1,7 +1,7 @@
 # UNO MINDA Software Interview task
 
 ### Task:
-A simple CAN driver is to be developed.
+A simple CAN driver is to be developed as per requirements.
 
 ### My Implementation:
 Implemented certain functions which satisfies the requirements of the task.
@@ -17,4 +17,4 @@ The implemented functions are:
 
 ### Available files:
 This folder contains the ``can_driver.c`` and ``can_driver.h`` files.<br>
-The ``can_driver.c`` contains all the functions that satisifes each requirement of the task and the ``can_driver.h`` contains the function decleration.
+The ``can_driver.c`` contains all the functions that satisifes each requirement specified in the task and the ``can_driver.h`` contains the function decleration.
