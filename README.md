@@ -15,4 +15,6 @@ The implemented functions are:
 - Send a CAN message every 10ms in interrupt mode.
 
 
-
+### Available files:
+This folder contains the ``can_driver.c`` and ``can_driver.h`` files.<br>
+The ``can_driver.c`` contains all the functions that satisifes each requirement of the task and the ``can_driver.h`` contains the function decleration.
