@@ -11,21 +11,22 @@ volatile uint16_t *DATA_TX = (uint16_t*) 0x0FF0;
 uint8_t send_counter = 0;
 bool flag2_state = false;
 
-// Message ID
+// Define the message ID
 #define RX_MESSAGE_ID 0x200
 #define TX_MESSAGE_ID 0x300
 
-// RX/TX DLC
+//Define the DLC
 #define RX_DLC 4
 #define TX_DLC 1
 
-// Signal locations
+// Define the signal locations
 #define SEND_COUNTER_POS 0
 
+// Define signal values
 // The SEND_COUNTER_MAX is defined as 15 because it is a 4-bit counter
 #define SEND_COUNTER_MAX 15
 
-// CTRL register bit masks
+// Define the CTRL register bit masks
 #define ACT_RX_IRQ_MASK (1 << 0)
 #define ACT_TX_IRQ_MASK (1 << 1)
 #define TX_AVL_MASK (1 << 2)
@@ -33,7 +34,7 @@ bool flag2_state = false;
 #define START_STOP_MASK (1 << 4)
 
 
-void CAN_Init(void)
+void CAN_Init()
 {
     // Set up the CTRL register
     uint16_t ctrlReg = 0;
@@ -65,13 +66,13 @@ void CAN_Configure()
 
 void CAN_Send()
 {
-    // The TX AVL bit is set to 1 by the controller when it has finished transmitting a message and the transmit buffer is available for another message. 
+    // The TX AVL bit is set to 1 by the controller when it has finished transmitting a message.
     // The bit is cleared to 0 when the controller is in the process of transmitting a message.
     while (!(*CTRLREG & TX_AVL_MASK)) {
         usleep(100);
     }
 
-    //Update the send_counter signal
+    // Update the send_counter signal
     *(DATA_TX + SEND_COUNTER_POS) = send_counter;
 
     // Set the DLC and ID in the TX buffer
@@ -127,7 +128,7 @@ bool CAN_Receive(uint16_t* id, uint8_t* dataLength, uint8_t data[])
     IRQ_MESSAGE_AVAILABLE_RX();
 }
 
-void CAN_send_periodic()
+void CAN_Send_Periodic()
 {
     static uint32_t last_send_time = 0;
     uint32_t current_time = clock();
@@ -138,4 +139,3 @@ void CAN_send_periodic()
         last_send_time = current_time;
     }
 }
-
