@@ -16,5 +16,6 @@ The implemented functions are:
 
 
 ### Available files:
-This folder contains the ``can_driver.c`` and ``can_driver.h`` files.<br>
+This folder contains the ``main.c``, ``can_driver.c`` and ``can_driver.h`` files.<br>
+The ``main.c`` is an example usage of the CAN driver.
 The ``can_driver.c`` contains all the functions that satisifes each requirement specified in the task and the ``can_driver.h`` contains the function decleration.
