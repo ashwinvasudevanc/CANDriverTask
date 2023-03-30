@@ -126,6 +126,8 @@ bool CAN_Receive(uint16_t* id, uint8_t* dataLength, uint8_t data[])
 
     // Call the interrupt to notify the application that a new message has been received.
     IRQ_MESSAGE_AVAILABLE_RX();
+	
+	return true;
 }
 
 void CAN_Send_Periodic()
