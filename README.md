@@ -1,4 +1,4 @@
-# UNO MINDA Software Interview task
+# Simple CAN driver development
 
 ### Task:
 A simple CAN driver is to be developed as per requirements.
